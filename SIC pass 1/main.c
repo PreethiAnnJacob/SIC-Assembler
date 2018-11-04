@@ -228,6 +228,8 @@ int main()
     }
     proglength=locctr-startaddress;
     printf("Intermediate file created. Program Name=%s and Program length=%x\n",progname,proglength);
+    fp3=fopen("Details.txt","w");
+    fprintf(fp3,"%s\n%x\n%x",progname,startaddress,proglength);
     fflush(stdin);
     fclose(fp1);fclose(fp2);fclose(fp3);fclose(fp4);
     return 0;
