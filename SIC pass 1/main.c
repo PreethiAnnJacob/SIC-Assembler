@@ -146,6 +146,7 @@ int main()
             if(strcmp(opcode,"START")==0)
             {   startaddress=hexadecimal_to_decimal(atoi(operand));
                 locctr=startaddress;
+                strcpy(progname,label);
                 fp3=fopen("intermediate.txt","a");//open intermediate file
                 fprintf(fp3,"%x\t%s\t%s\t%s\n",locctr,label,opcode,operand);//write to intermediate file
                 printf("%x\t%s\t%s\t%s into intermediate\n",locctr,label,opcode,operand);
@@ -226,7 +227,7 @@ int main()
         }
     }
     proglength=locctr-startaddress;
-    printf("Intermediate file created. Program length=%x\n",proglength);
+    printf("Intermediate file created. Program Name=%s and Program length=%x\n",progname,proglength);
     fflush(stdin);
     fclose(fp1);fclose(fp2);fclose(fp3);fclose(fp4);
     return 0;
